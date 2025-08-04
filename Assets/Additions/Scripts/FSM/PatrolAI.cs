@@ -22,6 +22,12 @@ public class PatrolAI : MonoBehaviour
     public float attackRange = 1.5f; // Range at which the AI can attack the player
     public float attackDamage = 10f; // Damage dealt to the player
 
+    [Header("Debugging")]
+    public Material patrolMaterial;
+    public Material idleMaterial;
+    public Material chaseMaterial;
+    public MeshRenderer meshRenderer;
+
     private NavMeshAgent agent;
     private StateInterface currentState;
     private float lastPlayerCheckTime;
@@ -63,6 +69,19 @@ public class PatrolAI : MonoBehaviour
         if (currentState != null)
         {
             currentState.ExitState();
+        }
+
+        if (newState == patrolState)
+        {
+            meshRenderer.material = patrolMaterial;
+        }
+        else if (newState == idleState)
+        {
+            meshRenderer.material = idleMaterial;
+        }
+        else if (newState == chaseState)
+        {
+            meshRenderer.material = chaseMaterial;
         }
 
         currentState = newState;

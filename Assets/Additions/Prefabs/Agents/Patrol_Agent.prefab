@@ -137,7 +137,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -292,6 +292,10 @@ MonoBehaviour:
   playerCheckRate: 0.2
   attackRange: 1.5
   attackDamage: 10
+  patrolMaterial: {fileID: 2100000, guid: 6cfaf872b6b8760409d9278d2c5d4461, type: 2}
+  idleMaterial: {fileID: 2100000, guid: cb54856e7841cf84f97bc182f153b25a, type: 2}
+  chaseMaterial: {fileID: 2100000, guid: 7a6464d34f527a84f92335cbf6dd3c73, type: 2}
+  meshRenderer: {fileID: 7882345807874192584}
 --- !u!114 &8074826013323743781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,7 +488,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 6cfaf872b6b8760409d9278d2c5d4461, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -737,6 +737,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8074826013323743781, guid: 673253e3d7d777445b2d5b26deda1557,
         type: 3}
+      propertyPath: FOV
+      value: 94.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074826013323743781, guid: 673253e3d7d777445b2d5b26deda1557,
+        type: 3}
+      propertyPath: sightRange
+      value: 12.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074826013323743781, guid: 673253e3d7d777445b2d5b26deda1557,
+        type: 3}
+      propertyPath: hearingRange
+      value: 5.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074826013323743781, guid: 673253e3d7d777445b2d5b26deda1557,
+        type: 3}
       propertyPath: playerLayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -747,9 +762,19 @@ PrefabInstance:
       objectReference: {fileID: 2107116698}
     - target: {fileID: 8834316819344909081, guid: 673253e3d7d777445b2d5b26deda1557,
         type: 3}
+      propertyPath: chaseRange
+      value: 14.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834316819344909081, guid: 673253e3d7d777445b2d5b26deda1557,
+        type: 3}
       propertyPath: idlePosition
       value: 
       objectReference: {fileID: 983255564}
+    - target: {fileID: 8834316819344909081, guid: 673253e3d7d777445b2d5b26deda1557,
+        type: 3}
+      propertyPath: playerCheckRate
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8834316819344909081, guid: 673253e3d7d777445b2d5b26deda1557,
         type: 3}
       propertyPath: waypoints.Array.size
