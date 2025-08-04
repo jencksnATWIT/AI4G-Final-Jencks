@@ -44,11 +44,11 @@ public class ChaseState : StateInterface
 
         agent.SetDestination(player.position);
     }
-    
+
     public void ExitState()
     {
         Debug.Log("Exiting Chase State");
         // Cleanup or reset parameters when exiting chase state
-        
+        agent.ResetPath(); // Stop the agent from moving        
     }
 }

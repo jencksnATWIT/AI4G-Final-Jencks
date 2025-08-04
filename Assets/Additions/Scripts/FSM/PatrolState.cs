@@ -37,6 +37,18 @@ public class PatrolState : StateInterface
             Debug.LogWarning("No waypoints set for patrol.");
             return;
         }
+        
+        float distanceToClosestWaypoint = Vector3.Distance(agent.transform.position, waypoints[0].position);
+
+        for (int i = 0; i < waypoints.Length; i++)
+        {
+            float distance = Vector3.Distance(agent.transform.position, waypoints[i].position);
+            if (distance < distanceToClosestWaypoint)
+            {
+                index = i; // Set the closest waypoint as the starting point
+                distanceToClosestWaypoint = distance;
+            }
+        }
 
         agent.SetDestination(waypoints[index].position);
     }
@@ -54,6 +66,10 @@ public class PatrolState : StateInterface
                 index = (index + 1) % waypoints.Length; // Move to the next waypoint
                 agent.SetDestination(waypoints[index].position);
             }));
+
+            /*
+            index = (index + 1) % waypoints.Length; // Move to the next waypoint
+            agent.SetDestination(waypoints[index].position);*/
         }
     }
 
@@ -61,5 +77,7 @@ public class PatrolState : StateInterface
     {
         Debug.Log("Exiting Patrol State");
         // Clean up or reset patrol parameters if necessary
+        agent.ResetPath(); // Stop the agent from moving
+
     }
 }

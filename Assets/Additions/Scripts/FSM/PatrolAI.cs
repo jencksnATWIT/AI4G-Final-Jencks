@@ -8,6 +8,7 @@ public class PatrolAI : MonoBehaviour
     public Transform[] waypoints; // Array of waypoints for patrolling
     public Transform player;
     public Transform idlePosition; // Position to go to when idle
+    public PerceptionModule perceptionModule; // Reference to the perception module
 
     [Header("States")]
     public PatrolState patrolState { get; private set; }
@@ -44,6 +45,14 @@ public class PatrolAI : MonoBehaviour
     void Update()
     {
         //Player check?
+        if (perceptionModule.PlayerSeen())
+        {
+            //Debug.Log("Player seen by AI");
+            if (currentState != chaseState || currentState != attackState)
+            {
+                TransitionToState(chaseState);
+            }
+        }
 
         currentState?.UpdateState();
     }

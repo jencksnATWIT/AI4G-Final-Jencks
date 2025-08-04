@@ -7,7 +7,7 @@ public class AttackState : StateInterface
     private NavMeshAgent agent;
     private Transform player;
     private float attackRange;
-    private float attackCooldown = 1.0f; // Time between attacks
+    private float attackCooldown = 5.0f; // Time between attacks
     private float lastAttackTime;
     private float attackDamage; // Damage dealt to the player
 
@@ -29,12 +29,32 @@ public class AttackState : StateInterface
 
     public void UpdateState()
     {
+        Debug.Log("Updating Attack State");
+        // Logic for attacking the player, e.g., check distance, perform attack, etc.
+        float dist = Vector3.Distance(agent.transform.position, player.position);
 
+        if (dist > attackRange)
+        {
+            ai.TransitionToState(ai.chaseState);
+            return;
+        }
+
+        if (Time.time - lastAttackTime >= attackCooldown)
+        {
+            // Perform attack
+            Debug.Log("Attacking player!");
+            // Here you would apply damage to the player
+            // player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            lastAttackTime = Time.time; // Reset attack timer
+        }
+
+        agent.SetDestination(player.position); // Keep moving towards the player
     }
-    
+
     public void ExitState()
     {
         Debug.Log("Exiting Attack State");
         // Cleanup or reset parameters when exiting attack state
+        agent.ResetPath(); // Stop the agent from moving
     }
 }

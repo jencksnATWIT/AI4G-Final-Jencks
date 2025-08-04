@@ -49,5 +49,6 @@ public class IdleState : StateInterface
     {
         Debug.Log("Exiting Idle State");
         // Cleanup or reset parameters when exiting idle state
+        agent.ResetPath(); // Stop the agent from moving
     }
 }
