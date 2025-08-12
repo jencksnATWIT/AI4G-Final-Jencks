@@ -24,6 +24,7 @@ public class DungeonGenerator : MonoBehaviour
 
     [Header("NavMesh")]
     public Unity.AI.Navigation.NavMeshSurface navMeshSurface;
+    public Transform player;
 
     public List<Room> allRooms = new();
 
@@ -70,12 +71,34 @@ public class DungeonGenerator : MonoBehaviour
     /// </summary>
     void SpawnAgent()
     {
+        float numAgents = MathF.Floor(allRooms.Count / 2);
         if (agentPrefab == null || allRooms.Count == 0)
         {
             Debug.LogWarning("AgentPrefab not assigned or no rooms generated.");
             return;
         }
 
+        for (int i = 0; i < numAgents; i++)
+        {
+            // Spawn the agent in the center of the first room.
+            Vector2Int spawn = allRooms[2*1].Center;
+            Vector3 spawnPosition = new Vector3(spawn.x, 1.5f, spawn.y);
+
+            GameObject agent = Instantiate(agentPrefab, spawnPosition, Quaternion.identity);
+
+            var patrolAI = agent.GetComponent<PatrolAI>();
+            if (patrolAI != null)
+            {
+                patrolAI.waypoints = _spawnedMarkers
+                    .ConvertAll(marker => marker.transform)
+                    .ToArray();
+
+                Debug.Log($"Assigned {patrolAI.waypoints.Length} waypoints to PatrolAI.");
+            }
+
+            patrolAI.player = player;
+            patrolAI.idlePosition = patrolAI.waypoints[0].transform;
+        } /*
         // Spawn the agent in the center of the first room.
         Vector2Int spawn = allRooms[0].Center;
         Vector3 spawnPosition = new Vector3(spawn.x, 1.5f, spawn.y);
@@ -91,6 +114,9 @@ public class DungeonGenerator : MonoBehaviour
 
             Debug.Log($"Assigned {patrolAI.waypoints.Length} waypoints to PatrolAI.");
         }
+
+        patrolAI.player = player;
+        patrolAI.idlePosition = patrolAI.waypoints[0].transform; */
 
         //Instantiate(agentPrefab, spawnPosition, Quaternion.identity);
     }

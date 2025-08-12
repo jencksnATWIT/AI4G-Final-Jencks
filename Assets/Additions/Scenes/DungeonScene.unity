@@ -241,6 +241,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrol_Agent
       objectReference: {fileID: 0}
+    - target: {fileID: 2451867526988755130, guid: 673253e3d7d777445b2d5b26deda1557,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2857025965162302152, guid: 673253e3d7d777445b2d5b26deda1557,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -682,9 +687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a257a93b8a7a1934daeb3fdbb9da6a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 30
-  height: 30
-  minRoomSize: 6
+  width: 60
+  height: 60
+  minRoomSize: 10
   floorPrefab: {fileID: 4975111283930145956, guid: b49bb42a942c9e1429d0548f85c4d412,
     type: 3}
   markerPrefab: {fileID: 894150669839649714, guid: d9def24c03a5f4042bc67212430df3cf,
@@ -692,6 +697,7 @@ MonoBehaviour:
   agentPrefab: {fileID: 2451867526988755130, guid: 673253e3d7d777445b2d5b26deda1557,
     type: 3}
   navMeshSurface: {fileID: 418290383}
+  player: {fileID: 1452107903}
 --- !u!1001 &1296369529
 PrefabInstance:
   m_ObjectHideFlags: 0

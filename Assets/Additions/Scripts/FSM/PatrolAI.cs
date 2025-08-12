@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
 using System.Linq;
+using Unity.FPS.Game;
 
 public class PatrolAI : MonoBehaviour
 {
@@ -10,12 +11,14 @@ public class PatrolAI : MonoBehaviour
     public Transform player;
     public Transform idlePosition; // Position to go to when idle
     public PerceptionModule perceptionModule; // Reference to the perception module
+    public Health agentHealth; // Reference to the player's health component
 
     [Header("States")]
     public PatrolState patrolState { get; private set; }
     public IdleState idleState { get; private set; }
     public ChaseState chaseState { get; private set; }
-    public AttackState attackState { get; private set; } // Assuming you have an AttackState class
+    public AttackState attackState { get; private set; }
+    public DeathState deathState { get; private set; }
 
     [Header("Settings")]
     public float chaseRange = 8f;
@@ -41,6 +44,7 @@ public class PatrolAI : MonoBehaviour
         idleState = new IdleState(this, agent, idlePosition);
         chaseState = new ChaseState(this, agent, player, chaseRange, attackRange);
         attackState = new AttackState(this, agent, player, attackRange, attackDamage); // Assuming you have an AttackState class
+        deathState = new DeathState(this, agent); // Assuming you have a DeathState class
 
         //Debug.Log("Running checkForWaypoints() in PatrolAI Start method.");
         //checkForWaypoints();
@@ -160,16 +164,23 @@ public class PatrolAI : MonoBehaviour
         }
     }
 
-    /*
+    void HandleDeath()
+    {
+        Debug.Log("Handling death in PatrolAI");
+        TransitionToState(deathState);
+    }
+
+    
     void OnEnable()
     {
-        DungeonGenerator.OnDungeonGenerated += checkForWaypoints;
+        agentHealth.OnDie += HandleDeath;
     }
 
     void OnDisable()
     {
-        DungeonGenerator.OnDungeonGenerated -= checkForWaypoints;
-    } */
+        //DungeonGenerator.OnDungeonGenerated -= checkForWaypoints;
+        agentHealth.OnDie -= HandleDeath;
+    } 
 
     public System.Collections.IEnumerator WaitAtWaypoint(float duration, System.Action onComplete)
     {

@@ -288,6 +288,7 @@ MonoBehaviour:
   player: {fileID: 0}
   idlePosition: {fileID: 0}
   perceptionModule: {fileID: 8074826013323743781}
+  agentHealth: {fileID: 1646169682012653487}
   chaseRange: 14
   playerCheckRate: 0.2
   attackRange: 1.5
