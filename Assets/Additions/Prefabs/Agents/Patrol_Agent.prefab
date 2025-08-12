@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 182949199292002718}
   - component: {fileID: 8834316819344909081}
   - component: {fileID: 8074826013323743781}
+  - component: {fileID: 4043395602621049910}
   m_Layer: 0
   m_Name: Patrol_Agent
   m_TagString: Untagged
@@ -321,6 +322,21 @@ MonoBehaviour:
     m_Bits: 4
   ai: {fileID: 8834316819344909081}
   agent: {fileID: 3859473870745783684}
+--- !u!114 &4043395602621049910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2451867526988755130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b7698ec50c85c44a849a968dc1d57d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompassMarkerPrefab: {fileID: 4125838790012652590, guid: 513785daf84f2a243b0cda079e6835cd,
+    type: 3}
+  TextDirection: 
 --- !u!1 &4886988707396765899
 GameObject:
   m_ObjectHideFlags: 0
