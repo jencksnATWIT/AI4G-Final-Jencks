@@ -48,8 +48,8 @@ public class PerceptionModule : MonoBehaviour
     {
         // Logic to handle sound detection, e.g., transition to search state
         Debug.Log("Sound heard at: " + origin);
-        //ai.searchState.point.position = origin;
-        //ai.TransitionToState(ai.searchState);
+        ai.searchState.point.position = origin;
+        ai.TransitionToState(ai.searchState);
     }
 
     void OnDrawGizmosSelected()

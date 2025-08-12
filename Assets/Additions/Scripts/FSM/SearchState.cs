@@ -5,7 +5,7 @@ public class SearchState : StateInterface
 {
     private PatrolAI ai;
     private NavMeshAgent agent;
-    private Transform point;
+    public Transform point;
     private float searchTime;
     private float searchTimer = 0f;
     private Vector3 rotation = new Vector3(0, 0, 0); // Direction to look from the search point

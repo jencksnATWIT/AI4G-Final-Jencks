@@ -19,6 +19,7 @@ public class PatrolAI : MonoBehaviour
     public ChaseState chaseState { get; private set; }
     public AttackState attackState { get; private set; }
     public DeathState deathState { get; private set; }
+    public SearchState searchState { get; private set; }
 
     [Header("Settings")]
     public float chaseRange = 8f;
@@ -45,6 +46,7 @@ public class PatrolAI : MonoBehaviour
         chaseState = new ChaseState(this, agent, player, chaseRange, attackRange);
         attackState = new AttackState(this, agent, player, attackRange, attackDamage); // Assuming you have an AttackState class
         deathState = new DeathState(this, agent); // Assuming you have a DeathState class
+        searchState = new SearchState(this, agent, this.transform, 5f); // Assuming you have a SearchState class
 
         //Debug.Log("Running checkForWaypoints() in PatrolAI Start method.");
         //checkForWaypoints();
