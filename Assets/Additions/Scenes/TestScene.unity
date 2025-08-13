@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomMarker
       objectReference: {fileID: 0}
+    - target: {fileID: 894150669839649714, guid: d9def24c03a5f4042bc67212430df3cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2155183342890611331, guid: d9def24c03a5f4042bc67212430df3cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1239,6 +1244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Patrol_Agent (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2451867526988755130, guid: 673253e3d7d777445b2d5b26deda1557,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2857025965162302152, guid: 673253e3d7d777445b2d5b26deda1557,
         type: 3}
